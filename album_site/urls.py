@@ -5,5 +5,5 @@ from . import views
 
 app_name = 'albumapp'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.HomeView.as_view(), name='home'),
 ]
