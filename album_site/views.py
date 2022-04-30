@@ -10,7 +10,7 @@ class HomeView(ListView):
     context_object_name = 'album_list'
 
     def get_queryset(self):
-        return Album.objects
+        return Album.objects.all()
 
 
 #create a new album

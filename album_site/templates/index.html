@@ -5,5 +5,14 @@
     <title>Album App</title>
   </head>
   <body>
+    {% if album_list %}
+      <ul>
+        {% for a in album_list %}
+          <li> a.title </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p> You have no albums currently. </p>
+    {% endif %}
   </body>
 </html>
