@@ -5,9 +5,9 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 # Create your views here.
 
 #display all the albums
-def index(request):
-    return HttpResponse('indexview')
-
+class HomeView(generic.ListView):
+    
+    
 #create a new album
 
 #display a specific album
