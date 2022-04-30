@@ -1,13 +1,14 @@
 from django.shortcuts import render
-from django.views import generic
+from django.views.generic.list import ListView
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 
 # Create your views here.
 
 #display all the albums
-class HomeView(generic.ListView):
-    
-    
+class HomeView(ListView):
+
+
+
 #create a new album
 
 #display a specific album
