@@ -11,7 +11,7 @@ class HomeView(ListView):
     context_object_name = 'album_list'
 
     def get_queryset(self):
-        return Album.objects.all()
+        return Album.objects.order_by('-creation_date')
 
 #create a new album
 class NewAlbumView(FormView):
