@@ -6,7 +6,7 @@
   </head>
   <body>
     <form method="post">{% csrf_token %}
-      {{ form.as_p }}
+      {{form}}
       <input type="submit" value="Create New Album">
     </form>
   </body>
