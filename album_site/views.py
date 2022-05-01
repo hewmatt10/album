@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
-from django.views.generic.edit import FormView
+from django.views.generic.edit import CreateView
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import Album, Photo
 from .forms import AlbumForm
@@ -15,14 +15,12 @@ class HomeView(ListView):
         return Album.objects.order_by('-creation_date')
 
 #create a new album
-class NewAlbumView(FormView):
+class NewAlbumView(CreateView):
+    model = Album
+    # form_class = AlbumForm
+    fields = ['title', 'description']
     template_name = 'newalbum.html'
-    form_class = AlbumForm
     success_url = '/albums'
-
-    def form_valid(self, form):
-        form.send()
-        return super().form_valid(form)
 
 
 #display a specific album

@@ -8,8 +8,8 @@
     {% if album_list %}
       <ul>
         {% for a in album_list %}
-          <li> a.title </li>
-          <li> a.description </li>
+          <h1> {{ a.title }} </h1>
+          <p> {{ a.description }} </p>
         {% endfor %}
       </ul>
     {% else %}

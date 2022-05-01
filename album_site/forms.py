@@ -4,5 +4,3 @@ class AlbumForm(forms.Form):
     title = forms.CharField()
     description = forms.CharField()
     
-    def send(self):
-        pass
