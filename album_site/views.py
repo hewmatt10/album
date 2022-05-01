@@ -18,7 +18,7 @@ class HomeView(ListView):
 class NewAlbumView(FormView):
     template_name = 'newalbum.html'
     form_class = AlbumForm
-    success_url = '/..'
+    success_url = '/albums'
 
     def form_valid(self, form):
         form.send()
