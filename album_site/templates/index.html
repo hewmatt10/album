@@ -9,10 +9,14 @@
       <ul>
         {% for a in album_list %}
           <li> a.title </li>
+          <li> a.description </li>
         {% endfor %}
       </ul>
     {% else %}
       <p> You have no albums currently. </p>
     {% endif %}
+    <button type="button">
+      <a href="{% url 'NewAlbumView' %}">Click here!</a>
+    </button>
   </body>
 </html>

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
+from django.views.generic.edit import FormView
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import Album, Photo
 # Create your views here.
@@ -12,8 +13,10 @@ class HomeView(ListView):
     def get_queryset(self):
         return Album.objects.all()
 
-
 #create a new album
+class NewAlbumView(FormView):
+    template_name = 'newalbum.html'
+
 
 #display a specific album
 
