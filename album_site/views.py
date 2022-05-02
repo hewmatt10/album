@@ -26,8 +26,11 @@ class NewAlbumView(FormView):
         form.save()
         return super().form_valid(form)
 
-
 #display a specific album
+class AlbumView(ListView):
+    model = Album
+    
+
 
 #upload a photo
 
