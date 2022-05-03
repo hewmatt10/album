@@ -14,6 +14,7 @@ class Album(models.Model):
 class Photo(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     description = models.CharField(max_length=2000)
+    image = models.ImageField(null=True, blank=True)
     date = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.description
