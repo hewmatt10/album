@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, FormView
+from django.views.generic.detail import DetailView
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import Album, Photo
 from .forms import AlbumForm
@@ -27,7 +28,7 @@ class NewAlbumView(FormView):
         return super().form_valid(form)
 
 #display a specific album
-class AlbumView(ListView):
+class AlbumView(DetailView):
     model = Album
     template_name = 'viewalbum.html'
 
