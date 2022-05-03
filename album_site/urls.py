@@ -6,6 +6,6 @@ from . import views
 app_name = 'album_site'
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
-    path('newalbum', views.NewAlbumView.as_view(), name='new_album')
-    path('<int:pk>', views.AlbumView().as_view(), name='album')
+    path('newalbum/', views.NewAlbumView.as_view(), name='new_album'),
+    path('<int:pk>/', views.AlbumView.as_view(), name='current_album'),
 ]

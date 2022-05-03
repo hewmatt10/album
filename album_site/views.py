@@ -29,7 +29,7 @@ class NewAlbumView(FormView):
 #display a specific album
 class AlbumView(ListView):
     model = Album
-    
+    template_name = 'viewalbum.html'
 
 
 #upload a photo

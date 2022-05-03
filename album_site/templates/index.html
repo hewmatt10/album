@@ -8,7 +8,7 @@
     {% if album_list %}
       <ul>
         {% for a in album_list %}
-          <h1> {{ a.title }} </h1>
+          <h1><a href="{% url 'album_site:current_album' a.id %}"> {{ a.title }} </a> </h1>
           <!-- <p> {{ a.description }} </p> -->
         {% endfor %}
       </ul>
