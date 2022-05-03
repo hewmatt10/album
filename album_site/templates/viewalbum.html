@@ -6,6 +6,10 @@
   </head>
   <body>
     <h1> {{album.title}} </h1>
-    </form>
+    {% if album.image_set %}
+      {% for p in album.image_set %}
+        <img src="{{album.image.url}}">
+      {% endfor %}
+    {% endif %}
   </body>
 </html>
