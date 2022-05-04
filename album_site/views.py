@@ -3,8 +3,9 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, FormView
 from django.views.generic.detail import DetailView
 from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.urls import reverse
 from .models import Album, Photo
-from .forms import AlbumForm, PhotoForm
+from .forms import AlbumForm
 # Create your views here.
 
 #display all the albums
@@ -35,15 +36,12 @@ class AlbumView(DetailView):
 
 #upload a photo
 
-class NewFormView(FormView):
+class PhotoCreateView(CreateView):
     model = Photo
-    form_class = PhotoForm
-    template_name = 'newphoto.html'    
-    success_url = '/albums/<int:pk>' #go back into the album
-
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
+    fields = ['album', 'description', 'image']
+    template_name = 'newphoto.html'
+    def get_success_url(self):
+        return reverse('album_site:current_album', args=[self.object.album.id])
 
 #display a specific photo
 

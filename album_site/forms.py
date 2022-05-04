@@ -8,9 +8,9 @@ class AlbumForm(forms.Form):
     def save(self):
         a = Album.objects.create(title=self.data['title'], description = self.data['description'])
 
-class PhotoForm(forms.Form):
-    album = Album.objects.get(album.id)
-    description = forms.CharField()
-    image = forms.ImageField()
-    def save(self):
-        p = Photo.objects.create(album=self.data['album'], description = self.data['description'], image = self.data['image'])
+# class PhotoForm(forms.Form):
+#     album = Album.objects.get(album.id)
+#     description = forms.CharField()
+#     image = forms.ImageField()
+#     def save(self):
+#         p = Photo.objects.create(album=self.data['album'], description = self.data['description'], image = self.data['image'])
