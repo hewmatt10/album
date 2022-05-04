@@ -7,10 +7,15 @@
   </head>
   <body>
     <h1> {{album.title}} </h1>
-    {% if album.photo_set %}
+    {% if album.photo_set.all %}
       {% for p in album.photo_set.all %}
         <img src="{{p.image.url}}" alt="{{p.description}}">
       {% endfor %}
+    {% else %}
+      <p> You have no photos in {{album.title}}. </p>
     {% endif %}
+    <button>
+      <a href="{% url 'album_site:home' %}">back</a>
+    </button>
   </body>
 </html>
