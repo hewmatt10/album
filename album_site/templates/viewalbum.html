@@ -15,7 +15,10 @@
       <p> You have no photos in {{album.title}}. </p>
     {% endif %}
     <button>
-      <a href="{% url 'album_site:home' album album_id%}">back</a>
+      <a href="{% url 'album_site:home'%}">back</a>
+    </button>
+    <button>
+      <a href="{% url 'album_site:new_photo' album album.id%}">New Photo</a>
     </button>
   </body>
 </html>
