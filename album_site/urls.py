@@ -10,3 +10,4 @@ urlpatterns = [
     path('newalbum/', views.NewAlbumView.as_view(), name='new_album'),
     path('<int:pk>/', views.AlbumView.as_view(), name='current_album'),
 ] 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
