@@ -8,7 +8,8 @@
     <h1> {{album.title}} </h1>
     {% if album.photo_set %}
       {% for p in album.photo_set.all %}
-        <img src="{{p.image.url}}">
+        <img src="{{p.image.url}}" alt="{{p.description}}">
+        <p>{{p.image.url}}</p>
       {% endfor %}
     {% endif %}
   </body>
