@@ -35,15 +35,19 @@ class AlbumView(DetailView):
     model = Album
     template_name = 'viewalbum.html'
 
+class AlbumPhotoCreateView(CreateView):
+    model = Photo
+    fields = ['album', 'description', 'image']
+    template_name = 'newphoto.html'
+    def get_success_url(self):
+        return reverse('album_site:home')
 
 #upload a photo
-
 class PhotoCreateView(CreateView):
     model = Photo
     fields = ['album', 'description', 'image']
     template_name = 'newphoto.html'
     def get_success_url(self):
-        print(self.object)
         return reverse('album_site:current_album', args=[self.object.album.id])
 
     def get_form(self):
@@ -54,3 +58,7 @@ class PhotoCreateView(CreateView):
 
 #display a specific photo
 
+#delete photo
+#delete album
+#move photo from this to another album
+#uauth
