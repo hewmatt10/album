@@ -20,11 +20,11 @@ class PhotoForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         print(kwargs)
-        self.id = kwargs.pop('pk', None)
+        self.album = kwargs.pop('album', None)
         super(PhotoForm, self).__init__(*args, **kwargs)
         print('SUCKY SUCKYYYYYY :(((((((((')
-        print(self.id)
-        self.initial['album'] = Album.objects.get(pk=self.id)
+        print(self.album)
+        self.initial['album'] = self.album
 
 # class PhotoForm(forms.Form):
 #     album = Album.objects.get(album.id)

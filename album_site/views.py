@@ -40,6 +40,12 @@ class AlbumView(DetailView):
 class PhotoCreateView(CreateView):
     form_class = PhotoForm
     template_name = 'newphoto.html'
+
+    def get_form_kwargs(self, *args, **kwargs):
+        cur_kwargs = super().get_form_kwargs(*args, **kwargs)
+        cur_kwargs['album'] = self.object
+        return cur_kwargs
+
     def get_success_url(self):
         print(self.object)
         return reverse('album_site:current_album', args=[self.object.album.id])
