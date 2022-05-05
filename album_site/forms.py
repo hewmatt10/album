@@ -10,21 +10,6 @@ class AlbumForm(forms.Form):
     def save(self):
         a = Album.objects.create(title=self.data['title'], description = self.data['description'])
 
-class PhotoForm(ModelForm):
-    class Meta:
-        model = Photo
-        fields = ['album', 'description', 'image']
-        widgets = {
-            'album' : HiddenInput
-        }
-
-    def __init__(self, *args, **kwargs):
-        print(kwargs)
-        self.album = kwargs.pop('album', None)
-        super(PhotoForm, self).__init__(*args, **kwargs)
-        print('SUCKY SUCKYYYYYY :(((((((((')
-        print(self.album)
-        self.initial['album'] = self.album
 
 # class PhotoForm(forms.Form):
 #     album = Album.objects.get(album.id)
