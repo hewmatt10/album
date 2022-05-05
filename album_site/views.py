@@ -1,3 +1,4 @@
+from django.forms import HiddenInput
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, FormView
@@ -6,7 +7,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.forms import Form, HiddenInput, ModelForm
 from .models import Album, Photo
-from .forms import AlbumForm, PhotoForm
+from .forms import AlbumForm
 # Create your views here.
 
 #display all the albums
@@ -38,19 +39,18 @@ class AlbumView(DetailView):
 #upload a photo
 
 class PhotoCreateView(CreateView):
-    form_class = PhotoForm
+    model = Photo
+    fields = ['album', 'description', 'image']
     template_name = 'newphoto.html'
-
-    def get_form_kwargs(self, *args, **kwargs):
-        cur_kwargs = super().get_form_kwargs(*args, **kwargs)
-        cur_kwargs['album'] = self.object
-        return cur_kwargs
-
     def get_success_url(self):
         print(self.object)
         return reverse('album_site:current_album', args=[self.object.album.id])
 
-
+    def get_form(self):
+        form = super(PhotoCreateView, self).get_form(self.get_form_class())
+        form.fields['album'].widget = HiddenInput()
+        form.fields['album'].initial = Album.objects.get(pk=self.kwargs["pk"]) # sketch
+        return form
 
 #display a specific photo
 
