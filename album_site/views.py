@@ -57,8 +57,13 @@ class PhotoCreateView(CreateView):
         return form
 
 #display a specific photo
+class PhotoView(DetailView):
+    model = Photo
+    print(model.__dict__)
+    template_name = 'viewphoto.html'
 
 #delete photo
-#delete album
+#delete album from albumview
+#delete album from inside the album
 #move photo from this to another album
 #uauth

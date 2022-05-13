@@ -9,7 +9,8 @@
     <h1> {{album.title}} </h1>
     {% if album.photo_set.all %}
       {% for p in album.photo_set.all %}
-        <img src="{{p.image.url}}" alt="{{p.description}}">
+
+        <a href="{% url 'album_site:current_photo' album.id p.id%}"><img src="{{p.image.url}}" alt="{{p.description}}"></a>
       {% endfor %}
     {% else %}
       <p> You have no photos in {{album.title}}. </p>
