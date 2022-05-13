@@ -59,8 +59,8 @@ class PhotoCreateView(CreateView):
 #display a specific photo
 class PhotoView(DetailView):
     model = Photo
-    print(model.__dict__)
     template_name = 'viewphoto.html'
+    context_object_name = "p"
 
 #delete photo
 #delete album from albumview
