@@ -1,7 +1,7 @@
 from django.forms import HiddenInput
 from django.shortcuts import render
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, FormView, DeleteView
+from django.views.generic.edit import CreateView, FormView, DeleteView, UpdateView
 from django.views.generic.detail import DetailView
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
@@ -67,13 +67,15 @@ class PhotoView(DetailView):
 class DeletePhoto(DeleteView):
     model = Photo
     success_url = reverse_lazy('album_site:home')
+
 class DeleteAlbum(DeleteView):
     model = Album
     success_url = reverse_lazy('album_site:home')
-#delete album from albumview
-#delete album from inside the album
-#move photo from this to another album
-#delete album from albumview
-#delete album from inside the album
+
+class UpdatePhoto(UpdateView):
+    model = Photo
+    fields = ['album']
+    template_name = 'updatephoto.html'
+    success_url = reverse_lazy('album_site:home')
 #move photo from this to another album
 #uauth

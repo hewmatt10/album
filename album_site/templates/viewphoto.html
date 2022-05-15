@@ -7,11 +7,12 @@
   <body>
     <img src="{{p.image.url}}" alt="{{p.description}}">
     <p>{{p.description}}</p>
-    <button>
       <form action="{% url 'album_site:delete_photo' p.album.id p.id%}" method="post">{% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Delete">
       </form>
-    </button>
+      <button>
+        <a href = "{% url 'album_site:update_photo' p.album.id p.id%}">Change Album</a>
+      </button>
   </body>
 </html>
