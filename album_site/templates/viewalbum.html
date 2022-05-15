@@ -21,5 +21,11 @@
     <button>
       <a href="{% url 'album_site:new_photo' album.id%}">New Photo</a>
     </button>
+    <button>
+      <form action="{% url 'album_site:delete_album' album.id%}" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Delete">
+      </form>
+    </button>
   </body>
 </html>

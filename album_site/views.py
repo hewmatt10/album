@@ -67,6 +67,12 @@ class PhotoView(DetailView):
 class DeletePhoto(DeleteView):
     model = Photo
     success_url = reverse_lazy('album_site:home')
+class DeleteAlbum(DeleteView):
+    model = Album
+    success_url = reverse_lazy('album_site:home')
+#delete album from albumview
+#delete album from inside the album
+#move photo from this to another album
 #delete album from albumview
 #delete album from inside the album
 #move photo from this to another album

@@ -13,4 +13,5 @@ urlpatterns = [
     path('newphoto/', views.AlbumPhotoCreateView.as_view(), name='new_album_photo'),
     path('<int:album_pk>/photo/<int:pk>', views.PhotoView.as_view(), name='current_photo'),
     path('<int:album_pk>/photo/<int:pk>/delete', views.DeletePhoto.as_view(), name='delete_photo'),
+    path('<int:pk>/delete', views.DeleteAlbum.as_view(), name='delete_album'),
 ]
