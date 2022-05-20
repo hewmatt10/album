@@ -6,6 +6,7 @@ from django.views.generic.detail import DetailView
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.forms import Form, HiddenInput, ModelForm
+from django.contrib.auth.views import LoginView, LogoutView
 from .models import Album, Photo
 from .forms import AlbumForm
 # Create your views here.
@@ -79,3 +80,10 @@ class UpdatePhoto(UpdateView):
     success_url = reverse_lazy('album_site:home')
 #move photo from this to another album
 #uauth
+
+class CustomLoginView(LoginView):
+    template_name = 'login.html'
+    fields = '__all__'
+    redirect_authenticated_user = True
+    def get_success_url(self):
+        return reverse_lazy('album_site:home')
