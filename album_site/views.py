@@ -39,8 +39,6 @@ class NewAlbumView(CreateView):
         form.fields['user'].initial = self.request.user
         return form
         
-
-
 #display a specific album
 class AlbumView(DetailView):
     model = Album
