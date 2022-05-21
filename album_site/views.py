@@ -9,7 +9,7 @@ from django.forms import Form, HiddenInput, ModelForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.models import User
 from .models import Album, Photo
-from .forms import AlbumForm
+
 # Create your views here.
 
 #display all the albums
