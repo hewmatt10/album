@@ -7,6 +7,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.forms import Form, HiddenInput, ModelForm
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.models import User
 from .models import Album, Photo
 from .forms import AlbumForm
 # Create your views here.
@@ -16,25 +17,35 @@ class HomeView(ListView):
     template_name = 'index.html'
     context_object_name = 'album_list'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['album_list'] = context['album_list'].filter(user=self.request.user)
+        return context
+
     def get_queryset(self):
         return Album.objects.order_by('-creation_date')
 
 #create a new album
-class NewAlbumView(FormView):
+class NewAlbumView(CreateView):
     model = Album
-    form_class = AlbumForm
-    # fields = ['title', 'description']
+    # form_class = AlbumForm
+    fields = ['user', 'title', 'description']
     template_name = 'newalbum.html'
-    success_url = '/albums'
+    def get_success_url(self):
+        return reverse('album_site:home')
+    def get_form(self):
+        form = super(NewAlbumView, self). get_form(self.get_form_class())
+        form.fields['user'].widget = HiddenInput()
+        form.fields['user'].initial = self.request.user
+        return form
+        
 
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
 
 #display a specific album
 class AlbumView(DetailView):
     model = Album
     template_name = 'viewalbum.html'
+
 
 class AlbumPhotoCreateView(CreateView):
     model = Photo
