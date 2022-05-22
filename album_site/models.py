@@ -7,7 +7,6 @@ class Album(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=2000)
-    size = models.IntegerField(default=0)
     creation_date = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.title
