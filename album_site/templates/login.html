@@ -9,6 +9,7 @@
         {%csrf_token%}
         {{form.as_p}}
         <input type="submit" value="Login">
-    </form>    
+    </form>   
+    <p> Don't have an account yet? <a href = "{% url 'album_site:register' %}">Register</a></p> 
   </body>
 </html>
