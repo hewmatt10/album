@@ -4,6 +4,8 @@
   <head>
     <meta charset="utf-8">
     <title>Album App</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
   <body>
     <h1> {{album.title}} </h1>
@@ -23,7 +25,7 @@
     </button>
       <form action="{% url 'album_site:delete_album' album.id%}" method="post">{% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Delete">
+        <input type="submit" value="Delete Album">
       </form>
   </body>
 </html>

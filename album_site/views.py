@@ -19,7 +19,7 @@ from .models import Album, Photo
 
 #display all the albums
 class HomeView(LoginRequiredMixin, ListView):
-    login_url = '/albums/login/'
+    login_url = '/album/login/'
     template_name = 'index.html'
     context_object_name = 'album_list'
 
@@ -57,6 +57,10 @@ class AlbumPhotoCreateView(CreateView):
     template_name = 'newphoto.html'
     def get_success_url(self):
         return reverse('album_site:home')
+    def get_form(self):
+        form = super(AlbumPhotoCreateView, self).get_form(self.get_form_class())
+        form.fields['album'].queryset = Album.objects.filter(user=self.request.user)
+        return form
 
 #upload a photo
 class PhotoCreateView(CreateView):
