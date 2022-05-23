@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Album App </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
   <body>
+    <h1> Home Page </h1>
     {% if request.user.is_authenticated %}  
       <p>{{request.user}}</p>
       <a href= "{% url 'album_site:logout'%}">Logout</a>

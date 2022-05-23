@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Album App</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
   <body>
+    <h1> Register </h1>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}

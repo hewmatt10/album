@@ -11,12 +11,15 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Album, Photo
 
 # Create your views here.
 
 #display all the albums
-class HomeView(ListView):
+class HomeView(LoginRequiredMixin, ListView):
+    login_url = '/albums/login/'
     template_name = 'index.html'
     context_object_name = 'album_list'
 
