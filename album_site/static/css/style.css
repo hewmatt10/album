@@ -1,3 +1,46 @@
+* {
+    background-color: #caf0f8;
+}
+
 h1 {
-    color: red;
+    color: #03045e;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+
+#buttoncenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    display: block;
+}
+
+.button {
+    background-color: #00b4d8;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 20px;
+    
+    display: block;
+
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.link {
+    background-color: transparent;
+    text-decoration: none;
+    padding: 30px 50px;
+}
+
+#albumlist {
+
 }

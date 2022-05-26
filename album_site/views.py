@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, FormView, DeleteView, UpdateView
 from django.views.generic.detail import DetailView
+from django.views.decorators.csrf import csrf_protect
+
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.forms import Form, HiddenInput, ModelForm
@@ -19,7 +21,7 @@ from .models import Album, Photo
 
 #display all the albums
 class HomeView(LoginRequiredMixin, ListView):
-    login_url = '/album/login/'
+    login_url = '/albums/login/'
     template_name = 'index.html'
     context_object_name = 'album_list'
 
@@ -62,7 +64,6 @@ class AlbumPhotoCreateView(CreateView):
         form.fields['album'].queryset = Album.objects.filter(user=self.request.user)
         return form
 
-#upload a photo
 class PhotoCreateView(CreateView):
     model = Photo
     fields = ['album', 'description', 'image']
@@ -97,8 +98,6 @@ class UpdatePhoto(UpdateView):
     fields = ['album']
     template_name = 'updatephoto.html'
     success_url = reverse_lazy('album_site:home')
-#move photo from this to another album
-#uauth
 
 class CustomLoginView(LoginView):
     template_name = 'login.html'

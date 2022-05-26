@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
   <body>
-    <h1> Home Page </h1>
+    <h1>Home Page</h1>
     {% if request.user.is_authenticated %}  
       <p>{{request.user}}</p>
       <a href= "{% url 'album_site:logout'%}">Logout</a>
@@ -16,20 +16,22 @@
     {% endif %}
     <hr>
     {% if album_list %}
-      <ul>
         {% for a in album_list %}
-          <h1><a href="{% url 'album_site:current_album' a.id %}"> {{ a.title }} </a> </h1>
+          <div id="albumlist"><h2><a href="{% url 'album_site:current_album' a.id %}">{{ a.title }}</a> </h2></div>
           <!-- <p> {{ a.description }} </p> -->
         {% endfor %}
-      </ul>
+    
     {% else %}
       <p> You have no albums currently. </p>
     {% endif %}
-    <button>
-      <a href="{% url 'album_site:new_album' %}">New Album!</a>
+    <br>
+    <div id='buttoncenter'>
+    <button class="button">
+      <a class="link" href="{% url 'album_site:new_album' %}">New Album</a>
     </button>
-    <button>
-      <a href="{% url 'album_site:new_album_photo' %}">New Photo! </a>
+    <button class="button">
+      <a class="link" href="{% url 'album_site:new_album_photo' %}">New Photo</a>
     </button>
+  </div>
   </body>
 </html>
