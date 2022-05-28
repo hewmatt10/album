@@ -12,7 +12,7 @@ h2 {
 }
 
 
-#buttoncenter {
+.buttoncenter {
     display: flex; 
     flex-direction: column;
     justify-content: center;
@@ -21,6 +21,11 @@ h2 {
 
 button {
     display: block;
+}
+
+#albumbutton {
+    background-color: red;
+
 }
 
 .button {
@@ -42,6 +47,6 @@ button {
     padding: 25px 50px;
 }
 
-#albumlist {
-
+#buttonword{
+    padding: 30px 60px;
 }
