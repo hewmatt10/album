@@ -10,10 +10,14 @@
     <h1> Change Photo </h1>
     <img src="{{p.image.url}}" alt="{{p.description}}">
     <p>{{p.description}}</p>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Update">
-    </form>
+    
+    <div class="center">
+      {% load crispy_forms_tags %}
+      <form method="POST">
+          {%csrf_token%}
+          {{form | crispy}}
+          <input type="submit" value="Update">
+      </form>   
+    </div>
   </body>
 </html>

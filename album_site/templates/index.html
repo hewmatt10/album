@@ -17,7 +17,7 @@
     <hr>
     {% if album_list %}
         {% for a in album_list %}
-            <div class="buttoncenter">
+            <div class="center">
               <button id="albumbutton" class="button">
                 <a id="buttonword" class="link" href="{% url 'album_site:current_album' a.id %}">
                   <h2>{{ a.title }}</h2>
@@ -33,7 +33,7 @@
       <p> You have no albums currently. </p>
     {% endif %}
     <br>
-    <div class="buttoncenter">
+    <div class="center">
     <button class="button">
       <a id="buttonword" class="link" href="{% url 'album_site:new_album' %}"><h2>New Album</h2></a>
     </button>

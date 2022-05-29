@@ -3,6 +3,12 @@
 }
 
 h1 {
+    display: block;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
     color: #03045e;
     text-align: center;
     font-size: 50px;
@@ -12,7 +18,7 @@ h2 {
     background-color: transparent;
     font-size: 30px;
 }
-.buttoncenter {
+.center {
     display: flex; 
     flex-direction: column;
     justify-content: center;
