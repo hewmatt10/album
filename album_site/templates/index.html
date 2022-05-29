@@ -17,10 +17,12 @@
     <hr>
     {% if album_list %}
         {% for a in album_list %}
-          <div id="albumlist">
             <div class="buttoncenter">
               <button id="albumbutton" class="button">
-                <a id="buttonword" class="link" href="{% url 'album_site:current_album' a.id %}">{{ a.title }}</a>
+                <a id="buttonword" class="link" href="{% url 'album_site:current_album' a.id %}">
+                  <h2>{{ a.title }}</h2>
+                  <p class="description"> {{a.description}}</p>
+                </a>
               </button>
             </div>
           </div>

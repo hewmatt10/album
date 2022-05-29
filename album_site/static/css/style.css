@@ -8,24 +8,21 @@ h1 {
 }
 
 h2 {
-    text-align: center;
+    background-color: transparent;
 }
-
-
 .buttoncenter {
     display: flex; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
-
 button {
     display: block;
 }
 
 #albumbutton {
-    background-color: red;
-
+    background-color: #0077b6;
 }
 
 .button {
@@ -37,16 +34,22 @@ button {
     display: block;
 
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .link {
     display: block;
     background-color: transparent;
     text-decoration: none;
-    padding: 25px 50px;
+    padding: 25px 20px;
 }
 
 #buttonword{
-    padding: 30px 60px;
+    padding: 10px 50px;
+}
+
+.description {
+    color: black;
+    background-color: #0077b6;
+    font-size: 20px;
 }
