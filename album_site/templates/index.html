@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
   <body>
-    <h1>Home Page</h1>
+    <h1>Albums</h1>
     {% if request.user.is_authenticated %}  
       <p>{{request.user}}</p>
       <a href= "{% url 'album_site:logout'%}">Logout</a>
@@ -35,10 +35,10 @@
     <br>
     <div class="buttoncenter">
     <button class="button">
-      <a class="link" href="{% url 'album_site:new_album' %}">New Album</a>
+      <a id="buttonword" class="link" href="{% url 'album_site:new_album' %}"><h2>New Album</h2></a>
     </button>
     <button class="button">
-      <a class="link" href="{% url 'album_site:new_album_photo' %}">New Photo</a>
+      <a id="buttonword" class="link" href="{% url 'album_site:new_album_photo' %}"><h2>New Photo</h2></a>
     </button>
   </div>
   </body>
