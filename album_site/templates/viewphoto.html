@@ -9,13 +9,15 @@
   <body>
     <img class="resize" style="max-width: 40%;"src="{{p.image.url}}" alt="{{p.description}}">
     <p>{{p.description}}</p>
+      <div class="center">
+        <button class="button">
+          <a class="link" href = "{% url 'album_site:update_photo' p.album.id p.id%}">Change Album</a>
+        </button>
       <form action="{% url 'album_site:delete_photo' p.album.id p.id%}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Delete Photo">
+        <input class="button link" type="submit" value="Delete Photo">
       </form>
-      <button>
-        <a href = "{% url 'album_site:update_photo' p.album.id p.id%}">Change Album</a>
-      </button>
+    </div>
   </body>
 </html>
