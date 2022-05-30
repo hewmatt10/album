@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
   <body>
-    <img src="{{p.image.url}}" alt="{{p.description}}">
+    <img class="resize" style="max-width: 40%;"src="{{p.image.url}}" alt="{{p.description}}">
     <p>{{p.description}}</p>
       <form action="{% url 'album_site:delete_photo' p.album.id p.id%}" method="post">
         {% csrf_token %}

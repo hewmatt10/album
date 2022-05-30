@@ -99,6 +99,11 @@ class UpdatePhoto(UpdateView):
     template_name = 'updatephoto.html'
     success_url = reverse_lazy('album_site:home')
 
+    def get_form(self):
+        form = super(UpdatePhoto, self).get_form(self.get_form_class())
+        form.fields['album'].queryset = Album.objects.filter(user=self.request.user)
+        return form;
+
 class CustomLoginView(LoginView):
     template_name = 'login.html'
     fields = '__all__'
