@@ -63,5 +63,7 @@ button {
 img.resize {
     max-width:18.7%;
     height:auto;
+    border-radius: 10px;
     border: 10px solid #0077b6;
+
 }

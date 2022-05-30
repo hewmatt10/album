@@ -7,8 +7,12 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
   <body>
-    <img class="resize" style="max-width: 40%;"src="{{p.image.url}}" alt="{{p.description}}">
-    <p>{{p.description}}</p>
+    <h1> {{p.album}} </h1>
+    <div class="center">
+      <img class="resize" style="max-width: 40%;"src="{{p.image.url}}" alt="{{p.description}}">
+      <p>{{p.description}}</p>
+    </div>
+    
       <div class="center">
         <button class="button">
           <a class="link" href = "{% url 'album_site:home' %}">Home</a>
