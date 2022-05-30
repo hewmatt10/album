@@ -11,6 +11,12 @@
     <p>{{p.description}}</p>
       <div class="center">
         <button class="button">
+          <a class="link" href = "{% url 'album_site:home' %}">Home</a>
+        </button>
+        <button class="button">
+          <a class="link" href = "{% url 'album_site:current_album' p.album.id %}">Back</a>
+        </button>
+        <button class="button">
           <a class="link" href = "{% url 'album_site:update_photo' p.album.id p.id%}">Change Album</a>
         </button>
       <form action="{% url 'album_site:delete_photo' p.album.id p.id%}" method="post">
