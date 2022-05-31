@@ -12,7 +12,9 @@
     {% if album.photo_set.all %}
       {% for p in album.photo_set.all %}
         <a href="{% url 'album_site:current_photo' album.id p.id%}">
+          <div class="border">
           <img class="resize" src="{{p.image.url}}" alt="{{p.description}}">
+          </div>
         </a>
       {% endfor %}
     {% else %}
