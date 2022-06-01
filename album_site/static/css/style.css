@@ -66,11 +66,12 @@ img.resize {
     max-height: 100%;
     border-radius: 10px;
     display: block;
+    background-color:#0077b6;
 }
 .border{
     border: 10px solid #0077b6;
     border-radius: 10px;
-    background-color: #0077b6;
+    background-color:#0077b6;
     padding: 0px;
     max-width: 40%;
     max-height: 60%;
