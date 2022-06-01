@@ -5,15 +5,16 @@
     <title>Album App</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> {% endcomment %}
   </head>
   <body>
     <h1> New Photo </h1>
     <div class="center">
-    {% load crispy_forms_tags %}
+    {% comment %} {% load crispy_forms_tags %} {% endcomment %}
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {{ form | crispy }}
+      {{form.as_p}}
+      {% comment %} {{ form | crispy }} {% endcomment %}
     <input type="submit" value="Save">
     </form>
   </div>

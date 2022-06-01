@@ -55,7 +55,7 @@ class AlbumView(DetailView):
 
 class AlbumPhotoCreateView(CreateView):
     model = Photo
-    fields = ['album', 'description', 'image']
+    fields = ['album', 'image', 'description']
     template_name = 'newphoto.html'
     def get_success_url(self):
         return reverse('album_site:home')
@@ -66,7 +66,7 @@ class AlbumPhotoCreateView(CreateView):
 
 class PhotoCreateView(CreateView):
     model = Photo
-    fields = ['album', 'description', 'image']
+    fields = ['album', 'image', 'description']
     template_name = 'newphoto.html'
     def get_success_url(self):
         return reverse('album_site:current_album', args=[self.object.album.id])
