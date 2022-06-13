@@ -14,8 +14,13 @@
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {{form.as_p}}
-      {% comment %} {{ form | crispy }} {% endcomment %}
-    <input type="submit" value="Save">
+      <div class="center">
+        <button class="button" type="submit">
+          <a class="link">
+            New Photo
+          </a>
+        </button>
+      </div>
     </form>
   </div>
   </body>

@@ -16,8 +16,14 @@
       {% csrf_token %}
       {{form.as_p}}
       <!-- edit form for css -->
-      {% comment %} {{ form | crispy }} {% endcomment %}
-      <div class="center"><input class="button" type="submit" value="Save"></div>
+      {% comment %} {{ form | crispy }} {% endcomment %}      
+      <div class="center">
+        <button class="button" type="submit">
+          <a class="link">
+            New Album
+          </a>
+        </button>
+      </div>
     </form>
   </div>
   </body>

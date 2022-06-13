@@ -16,7 +16,14 @@
         {%csrf_token%}
         {{form.as_p}}
         {% comment %} {{form | crispy}} {% endcomment %}
-        <input type="submit" value="Login">
+        
+      <div class="center">
+        <button class="button" type="submit">
+          <a class="link">
+            Login
+          </a>
+        </button>
+      </div>
     </form>   
     <p> Don't have an account yet? <a href = "{% url 'album_site:register' %}">Register</a></p> 
   </div>

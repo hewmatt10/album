@@ -12,11 +12,15 @@
     <p>{{p.description}}</p>
     
     <div class="center">
-      {% load crispy_forms_tags %}
       <form method="POST">
           {%csrf_token%}
-          {{form | crispy}}
-          <input type="submit" value="Update">
+        <div class="center">
+          <button class="button" type="submit">
+            <a class="link">
+              Save
+            </a>
+          </button>
+        </div>
       </form>   
     </div>
   </body>
