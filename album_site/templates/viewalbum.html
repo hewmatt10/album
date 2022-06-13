@@ -11,16 +11,17 @@
     <h1> {{album.title}} </h1>
     {% if album.photo_set.all %}
       {% for p in album.photo_set.all %}
-        <a href="{% url 'album_site:current_photo' album.id p.id%}">
           <div class="center">
           <div class="border">
+          <a href="{% url 'album_site:current_photo' album.id p.id%}">
           <img class="resize" src="{{p.image.url}}" alt="{{p.description}}">
+          </a>
           </div>
         </div>
-        </a>
+        
       {% endfor %}
     {% else %}
-      <p> You have no photos in {{album.title}}. </p>
+      <div class="center"><p> You have no photos in {{album.title}}. </p></div>
     {% endif %}
     <div class="center">
       <button class="button">
