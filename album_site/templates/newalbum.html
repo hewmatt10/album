@@ -15,8 +15,9 @@
     <form method="POST">
       {% csrf_token %}
       {{form.as_p}}
+      <!-- edit form for css -->
       {% comment %} {{ form | crispy }} {% endcomment %}
-    <input type="submit" value="Save">
+      <div class="center"><input class="button" type="submit" value="Save"></div>
     </form>
   </div>
   </body>
